@@ -5,26 +5,7 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    // const response=  await axios.get();
-    (async () => {
-      try {
-        setLoading(true);
-        setError(false);
-        const response = await axios.get("/api/products");
-        console.log(response.data);
-        setProducts(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError(true);
-        setLoading(false);
-      }
-    })();
-  }, []);
-
+  const [products, error, loading] = customReactQuery("/api/products");
   if (error) {
     return <h1>Something went wrong</h1>;
   }
@@ -42,3 +23,26 @@ function App() {
 }
 
 export default App;
+
+const customReactQuery = (urlPath) => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    // const response=  await axios.get();
+    (async () => {
+      try {
+        setLoading(true);
+        setError(false);
+        const response = await axios.get(urlPath);
+        console.log(response.data);
+        setProducts(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+        setLoading(false);
+      }
+    })();
+  }, []);
+  return [products, error, loading];
+};
