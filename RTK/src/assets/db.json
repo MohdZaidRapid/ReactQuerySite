@@ -11,6 +11,24 @@
       "body": "Some 2 random 2 posts",
       "userId": 23,
       "id": 2
+    },
+    {
+      "id": 53.69015832527757,
+      "title": "first my post",
+      "body": "random data",
+      "userId": 648.8435991732
+    },
+    {
+      "id": 765.2732317455803,
+      "title": "finish",
+      "body": "finally",
+      "userId": 333.810527316895
+    },
+    {
+      "id": 483.380030591249,
+      "title": "hello",
+      "body": "pokemon",
+      "userId": 620.505283414724
     }
   ]
 }
