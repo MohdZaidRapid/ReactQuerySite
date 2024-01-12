@@ -4,13 +4,18 @@ import App from './App.tsx'
 import './index.css'
 import {ApiProvider} from '@reduxjs/toolkit/query/react'
 import { posts } from './redux/api.ts'
+import {Provider} from 'react-redux'
+import { store } from './redux/store.ts'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ApiProvider api={posts}>
+    {/* <ApiProvider api={posts}> */}
+    <Provider store={store}>
     <App />
-    </ApiProvider>
+    </Provider>
+   
+    {/* </ApiProvider> */}
     
   </React.StrictMode>,
 )
