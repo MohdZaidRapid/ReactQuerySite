@@ -7,6 +7,8 @@ export const store = configureStore({
     [posts.reducerPath]: posts.reducer,
     [myReducer.name]: myReducer.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(posts.middleware),
+  middleware: (mid) => [...mid(), posts.middleware],
 });
+
+//   middleware: (getDefaultMiddleware) =>
+// getDefaultMiddleware().concat(posts.middleware),
